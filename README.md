@@ -4,7 +4,7 @@ Measure My Temperature with Microsoft Band 2 for iOS using integrated skin tempe
 1. Pair your Microsoft Band 2 with iPhone
 2. Run Application and see your temperature
 
-<center><img src="ClearMyBand/Screenshots/1.PNG?raw=true" alt="User Interface" width="250"></center>
+<center><img src="MeasureMyTemperature/Screenshots/1.PNG?raw=true" alt="User Interface" width="250"></center>
 
 
 **Details of implementation**
