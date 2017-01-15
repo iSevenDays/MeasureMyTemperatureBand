@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14122A1C1E251EB700D5C5C5 /* StrapTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14122A1B1E251EB700D5C5C5 /* StrapTableViewCell.swift */; };
+		1462BD731E2B90AD00479F42 /* SVTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1462BD721E2B90AD00479F42 /* SVTimer.swift */; };
 		14A2C9771E24D3BD0079304D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2C9761E24D3BD0079304D /* AppDelegate.swift */; };
 		14A2C9791E24D3BD0079304D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2C9781E24D3BD0079304D /* ViewController.swift */; };
 		14A2C97C1E24D3BD0079304D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A2C97A1E24D3BD0079304D /* Main.storyboard */; };
@@ -15,13 +15,12 @@
 		14A2C9811E24D3BD0079304D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A2C97F1E24D3BD0079304D /* LaunchScreen.storyboard */; };
 		14A2C98A1E24D3F30079304D /* MicrosoftBandKit_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A2C9891E24D3F30079304D /* MicrosoftBandKit_iOS.framework */; };
 		14A2C98D1E24D4920079304D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A2C98C1E24D4920079304D /* CoreBluetooth.framework */; };
-		14E88A441E26C62C009F37F8 /* StrappModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E88A431E26C62C009F37F8 /* StrappModel.swift */; };
 		14E88A461E26CD14009F37F8 /* TileFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E88A451E26CD14009F37F8 /* TileFabric.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14122A1A1E250B3400D5C5C5 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
-		14122A1B1E251EB700D5C5C5 /* StrapTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrapTableViewCell.swift; sourceTree = "<group>"; };
+		1462BD721E2B90AD00479F42 /* SVTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SVTimer.swift; sourceTree = "<group>"; };
 		14A2C9731E24D3BD0079304D /* MeasureMyTemperature.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeasureMyTemperature.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14A2C9761E24D3BD0079304D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A2C9781E24D3BD0079304D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,7 +30,6 @@
 		14A2C9821E24D3BD0079304D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A2C9891E24D3F30079304D /* MicrosoftBandKit_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftBandKit_iOS.framework; sourceTree = "<group>"; };
 		14A2C98C1E24D4920079304D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		14E88A431E26C62C009F37F8 /* StrappModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrappModel.swift; sourceTree = "<group>"; };
 		14E88A451E26CD14009F37F8 /* TileFabric.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileFabric.swift; sourceTree = "<group>"; };
 		1CFCDA7F9FC9C2FAB59551B3 /* libPods-ClearMyBand.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ClearMyBand.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E66424B6B2F9D82744F7D310 /* Pods-ClearMyBand.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ClearMyBand.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ClearMyBand/Pods-ClearMyBand.debug.xcconfig"; sourceTree = "<group>"; };
@@ -80,9 +78,8 @@
 				14A2C97F1E24D3BD0079304D /* LaunchScreen.storyboard */,
 				14A2C9821E24D3BD0079304D /* Info.plist */,
 				14122A1A1E250B3400D5C5C5 /* BridgingHeader.h */,
-				14122A1B1E251EB700D5C5C5 /* StrapTableViewCell.swift */,
-				14E88A431E26C62C009F37F8 /* StrappModel.swift */,
 				14E88A451E26CD14009F37F8 /* TileFabric.swift */,
+				1462BD721E2B90AD00479F42 /* SVTimer.swift */,
 			);
 			path = MeasureMyTemperature;
 			sourceTree = "<group>";
@@ -191,11 +188,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14122A1C1E251EB700D5C5C5 /* StrapTableViewCell.swift in Sources */,
 				14A2C9791E24D3BD0079304D /* ViewController.swift in Sources */,
 				14E88A461E26CD14009F37F8 /* TileFabric.swift in Sources */,
+				1462BD731E2B90AD00479F42 /* SVTimer.swift in Sources */,
 				14A2C9771E24D3BD0079304D /* AppDelegate.swift in Sources */,
-				14E88A441E26C62C009F37F8 /* StrappModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

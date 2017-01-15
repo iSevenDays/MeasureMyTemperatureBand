@@ -10,12 +10,12 @@ import Foundation
 
 class TileFabric {
 	
-	var clearTileID: String {
+	var measureTileID: String {
 		// Just unique UUID
 		return "DABDBA9F-12FD-47A5-1453-E7270A43BB99"
 	}
 	
-	var clearTilepageDataID: String {
+	var measureTilepageDataID: String {
 		// Just unique UUID
 		return "DABDBA9F-12FD-47A5-1453-E7270A43BB98"
 	}
@@ -28,7 +28,7 @@ class TileFabric {
 		
 		let smallIcon = try! MSBIcon(uiImage: UIImage(named: "temperatureIcon24"))
 		
-		let tileID = UUID(uuidString: clearTileID)!
+		let tileID = UUID(uuidString: measureTileID)!
 		
 		guard let tile = try? MSBTile(id: tileID, name: tileName, tileIcon: tileIcon, smallIcon: smallIcon) else {
 			NSLog("%@", "Error can not create tile")

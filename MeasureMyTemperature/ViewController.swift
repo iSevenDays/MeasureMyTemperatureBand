@@ -22,10 +22,12 @@ class ViewController: UIViewController {
 	
 	let tileFabric = TileFabric()
 	
-	var strip: [StrappModel] = []
 	
 	let measuringTemperatureText = "Measuring..."
 	var lastMeasureTemperature: Double?
+	
+	var reconnectTimer: SVTimer?
+	let connectionQueue = DispatchQueue(label: "reconnectionQueue", qos: DispatchQoS.utility)
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -49,6 +51,28 @@ class ViewController: UIViewController {
 			self.client = client
 			client.tileDelegate = self
 			MSBClientManager.shared().connect(client)
+		}else {
+			NSLog("%@", "No attached clients")
+			if let reconnectTimer = reconnectTimer {
+				if reconnectTimer.isValid {
+					return
+				}
+			}
+			reconnectTimer?.cancel()
+			reconnectTimer = nil
+			
+			NSLog("%@", "Reconnect timer started")
+			reconnectTimer = SVTimer(interval: 1000, tolerance: 1000, repeats: true, queue: connectionQueue, block: { [weak self] in
+				guard let strongSelf = self else { return }
+				
+				if MSBClientManager.shared().attachedClients().count > 0 {
+					strongSelf.connectToBand()
+					strongSelf.reconnectTimer?.cancel()
+					strongSelf.reconnectTimer = nil
+					NSLog("%@", "Reconnect timer dealloc")
+				}
+			})
+			reconnectTimer?.start()
 		}
 	}
 	
@@ -78,10 +102,10 @@ class ViewController: UIViewController {
 		statusItem.title = "Can not retrieve tiles"
 	}
 	
-	// MARK: - Clear notifications tile adding to Microsoft Band 2 strip
+	// MARK: - Measure notifications tile adding to Microsoft Band 2 strip
 	
-	@IBAction func removeClearTile(_ sender: UIButton) {
-		client?.tileManager.removeTile(with: UUID(uuidString: tileFabric.clearTileID), completionHandler: { [weak self] (error) in
+	@IBAction func removeMeasureTile(_ sender: UIButton) {
+		client?.tileManager.removeTile(with: UUID(uuidString: tileFabric.measureTileID), completionHandler: { [weak self] (error) in
 			if error == nil {
 				self?.show(notificationMessage: "Removed", withTitle: "Success")
 			} else {
@@ -90,7 +114,7 @@ class ViewController: UIViewController {
 		})
 	}
 	
-	@IBAction  func addClearTileToBand(_ sender: UIButton) {
+	@IBAction  func addMeasureTileToBand(_ sender: UIButton) {
 		guard let measureTile = tileFabric.measureTile() else {
 			show(notificationMessage: "Can not create a tile", withTitle: "Error")
 			return
@@ -112,13 +136,13 @@ class ViewController: UIViewController {
 	}
 	
 	func updateMeasureTileWithText(text: String) {
-		NSLog("%@", "Updating clear tile")
+		NSLog("%@", "Updating measure tile")
 		
 		let textData = try! MSBPageWrappedTextBlockData(elementId: 1, text: text)
 		
-		let pageData = MSBPageData(id: UUID(uuidString: tileFabric.clearTilepageDataID), layoutIndex: 0, value: [textData])
+		let pageData = MSBPageData(id: UUID(uuidString: tileFabric.measureTilepageDataID), layoutIndex: 0, value: [textData])
 		
-		client?.tileManager.setPages([pageData as Any], tileId: UUID(uuidString: tileFabric.clearTileID), completionHandler: { [weak self] (error) in
+		client?.tileManager.setPages([pageData as Any], tileId: UUID(uuidString: tileFabric.measureTileID), completionHandler: { [weak self] (error) in
 			if error == nil {
 				NSLog("%@", "Measure tile sent successfully text: \(text)")
 			} else {
@@ -128,12 +152,6 @@ class ViewController: UIViewController {
 	}
 	
 	// MARK: - Actions
-	@IBAction func clearNotifications(_ sender: UIButton) {
-		let enabledStrapps = strip.filter({$0.isOn})
-		NSLog("%@%", enabledStrapps)
-		
-		show(notificationMessage: "Notifications cleared", withTitle: "Success")
-	}
 	
 	func show(notificationMessage: String, withTitle title: String) {
 		let controller = UIAlertController(title: title, message: notificationMessage, preferredStyle: .alert)

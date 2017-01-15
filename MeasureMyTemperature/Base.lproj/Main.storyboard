@@ -50,7 +50,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="addClearTileToBand:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AKc-Ib-W5C"/>
+                                    <action selector="addMeasureTileToBand:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HCh-jD-mNf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6CA-HY-OJc">
@@ -64,7 +64,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="removeClearTile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XB8-sy-EUz"/>
+                                    <action selector="removeMeasureTile:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ws4-Wu-vI6"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="liW-hi-Tmp">
